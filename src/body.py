@@ -21,5 +21,5 @@ class Body:
         if r_magnitude == 0:
             return np.zeros(0)
         force_magnitude = G * self.mass * other_body.mass / r_magnitude**2
-        force_vec = force_magnitude * r_vec
+        force_vec = force_magnitude * r_vec / r_magnitude
         return force_vec
