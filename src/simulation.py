@@ -3,6 +3,7 @@ from body import Body
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # aktiviert 3D-Plotting
 from matplotlib.animation import FuncAnimation
+from energy import *
 
 
 def compute_all_forces(bodies):
@@ -26,12 +27,21 @@ def euler_update(bodies, forces, dt):
 def simulate(bodies, steps, dt):
     """führt die Simulation für Anzahl an Schritten durch und returns Liste an posistionen"""
     positions = [[] for body in bodies]
+    T = []
+    V = []
+    time = []
+    t = 0.
     for _ in range(steps):
         forces = compute_all_forces(bodies)
         euler_update(bodies, forces, dt)
         for i, body in enumerate(bodies):
             positions[i].append(body.position.copy())
-    return positions
+        T.append(calculate_kinetic_energy(bodies))
+        V.append(calculate_potential_energy(bodies))
+        time.append(t)
+        t += dt
+        
+    return positions, T, V, time
 
 
 def plot_trajectories_3d(bodies, positions):
@@ -61,8 +71,10 @@ def plot_trajectories_3d(bodies, positions):
 
 
 def animation(bodies, positions):
-    fig = plt.figure()
+    fig = plt.figure(figsize=(12.,7.5))
     ax = fig.add_subplot(111, projection="3d")
+
+    #time_text = ax.text(2, 2, 2, "t = 0", fontsize=12, color="white")
 
     all_x = [pos[0] for body_pos in positions for pos in body_pos] #Achsen-Limits
     all_y = [pos[1] for body_pos in positions for pos in body_pos]
@@ -95,7 +107,11 @@ def animation(bodies, positions):
             z_trail = [p[2] for p in trail]
             trails[i].set_data(x_trail, y_trail)
             trails[i].set_3d_properties(z_trail)
-        return points + trails
+
+            #t = frame * dt
+            #time_text.set_text(f"t = {t:.2f} s")
+            
+        return points + trails 
 
     ani = FuncAnimation(fig, update, frames=len(positions[0]), interval=10, blit=False)
     plt.tight_layout()

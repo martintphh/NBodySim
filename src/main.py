@@ -3,39 +3,45 @@ from body import Body
 from simulation import *
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # aktiviert 3D-Plotting
-
+from planets import *
+from energy import *
+from animation_2d import *
 
 
 def main():
-    earth = Body(
-        name="Earth",
-        mass =5.972e24,
-        position=np.array([1.496e11,0.,0.]),
-        velocity=np.array([0.,29780.,0.]))
+    bodies = [earth, sun, mercury, venus, jupiter, saturn, uranus, neptune, mars]
+    #bodies = [earth, sun, mercury, venus, mars, jupiter, saturn, uranus, neptune]
 
-    sun = Body("Sun", 
-    mass=1.9885e30,
-    position=np.array([0,0,0]),
-    velocity=np.array([0.,0.,0.]))
+    #for i in bodies:
+     #   print(i)
     
-    jupyter = Body("Jupyter",
-    mass=1.898e27,
-    position=np.array([7.758e11,0,0]),
-    velocity=np.array([0,13058,0]))
 
+    dt = 60 * 60  #1h in s
+    steps = 12*365 * 24 #ein Jahr
 
-    bodies = [sun, earth, jupyter]
+    positions, T, V, time = simulate(bodies, steps, dt)
+    positions_2d = [[[x,y] for x,y,_ in body_pos] for body_pos in positions]
 
-    dt = 60 * 60 *24 #1h in s
-    steps = 365 * 24 #ein Jahr
-
-    positions = simulate(bodies, steps, dt)
+    #print(np.array(positions_2d).shape)
+    
+    #print("x-Werte Körper 0:", [p[0] for p in positions_2d[0][:10]])
+    #print("y-Werte Körper 0:", [p[1] for p in positions_2d[0][:10]])
     
     #plot_trajectories_3d(bodies, positions)
+    plot_2d(bodies, positions, time)
+    """animate_2d(bodies, positions_2d, time)"""
+    
+    #plot_trajectories_3d(bodies, positions)
+    #animation(bodies, positions)
+    
+    #print(f"kinetische Energie Länge:{len(T)}")
+    #print(f"potenitelle Energie Länge:{len(V)}")
 
-    animation(bodies, positions)
+    T, V, E = energy(T, V)
+    #energy_plot(T, V, E, time)
+    
 
-
+    #print(np.array(positions).shape)
     return 0
 
 if __name__ == "__main__":

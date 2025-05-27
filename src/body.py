@@ -1,6 +1,11 @@
 # src.body
 import numpy as np
 
+G_SI = 6.6743e-11
+
+AU_in_m = 1.495978707e11 
+G_AU = G_SI / AU_in_m**3
+
 class Body:
     def __init__(self, name, mass, position, velocity):
         self.name = name #str
@@ -12,7 +17,7 @@ class Body:
     def __repr__(self):
         return f"Body {self.name}: position={self.position}, velocity={self.velocity}"
 
-    def force_from(self, other_body, G = 6.6743e-11):
+    def force_from(self, other_body, G = G_AU):
         """force from other_body on self
         units AU, where G=4pi^2"""
 
