@@ -14,8 +14,8 @@ It visualizes planetary orbits and analyzes total, potential, and kinetic energy
 ## Installation
 
 ```bash
-git clone https://github.com/username/n-body-simulation.git
-cd n-body-simulation
+git clone https://github.com/username/NBodySim.git
+cd NBodySim
 pip install -r requirements.txt
 ```
 
