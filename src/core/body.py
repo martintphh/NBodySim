@@ -50,7 +50,7 @@ class Body:
         
         if r_magnitude == 0:
             #avoiding devision by 0 if bodies would overlap
-            return np.zeros(0)
+            return np.zeros(3)
         
         force_magnitude = G * self.mass * other_body.mass / r_magnitude**2          #Force magnitude
         force_vec = force_magnitude * r_vec / r_magnitude                           #Force direction vector

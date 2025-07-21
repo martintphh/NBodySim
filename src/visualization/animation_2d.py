@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.animation import FuncAnimation
-#from simulation import *  
+ 
 
-def plot_2d(bodies, positions, time, save_path=None):
+def plot_2d(bodies, positions, time, save_path):
     fig = plt.figure(figsize=(12.5, 7.5))
     ax = fig.add_subplot(111)
 
@@ -16,15 +16,16 @@ def plot_2d(bodies, positions, time, save_path=None):
         ax.plot(x, y, linestyle="-", label=body.name, color=colors[i])
         ax.scatter(x[-1], y[-1], s=30, color=colors[i])
 
+    num_bodies = len(bodies)
     ax.set_aspect('equal')
-    ax.set_xlabel('x [m]')
-    ax.set_ylabel('y [m]')
-    ax.set_title('2D Trajectories of Bodies')
+    ax.set_xlabel('x (AU)')
+    ax.set_ylabel('y (AU)')
+    ax.set_title(f'2D Trajectories of {num_bodies} Bodies')
     ax.legend()
     plt.tight_layout()
 
-    if save_path:
-        plt.savefig(save_path, dpi=300)
+    plt.savefig(save_path, dpi=300)
+
     plt.show()
 
 
@@ -33,7 +34,7 @@ def seconds_to_ddhh_single(second):
     hh = (second % (3600 * 24)) // 3600
     return f"{int(dd):02d}days {int(hh):02d}hours"
 
-def animate_2d(bodies, positions, time, save_path=None):
+def animate_2d(bodies, positions, time, save_path):
     fig = plt.figure(figsize=(12, 7.5))
     ax = fig.add_subplot(111)
 
@@ -71,17 +72,14 @@ def animate_2d(bodies, positions, time, save_path=None):
             x_trail = [p[0] for p in positions[i][:frame + 1]]
             y_trail = [p[1] for p in positions[i][:frame + 1]]
             trails[i].set_data(x_trail, y_trail)
+            
 
         time_text.set_text(f"t = {seconds_to_ddhh_single(time[frame])}")
         return points + trails + [time_text]
 
     ani = FuncAnimation(fig=fig, func=update, frames=len(time), interval=10, blit=False)
     plt.tight_layout()
+    ani.save(save_path, writer='ffmpeg', fps=30)
+
     plt.show()
 
-    if save_path:
-        print(f"Speichere Animation unter: {save_path}")
-        if save_path.endswith(".gif"):
-            ani.save(save_path, writer='pillow', fps=30)
-        else:
-            ani.save(save_path, writer='ffmpeg', fps=30)
