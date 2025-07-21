@@ -39,19 +39,19 @@ python3 src/main.py
 
 ```bash
 .
-├── LICENCE
-├── README.md
-├── requirements.txt
-├── results
-│   ├── animation_5bodies_5y_rk4.mp4
+├── src/                   
+│   ├── main.py
+│   ├── config/
+│   ├── core/
+│   └── visualization/
+├── results/              
 │   └── plot_5bodies_5y_rk4.png
-└── src
-    ├── __init__.py
-    ├── __pycache__
-    ├── config
-    ├── core
-    ├── main.py
-    └── visualization
+├── docs/                 
+│   └── simulation.mp4
+├── requirements.txt      
+├── README.md              
+└── LICENCE 
+
 ```
 
 ## Backround
