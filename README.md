@@ -36,7 +36,9 @@ python3 src/main.py
 ```
 
 ## Project Structure
-/
+
+```bash
+.
 ├── LICENCE
 ├── README.md
 ├── requirements.txt
@@ -50,6 +52,7 @@ python3 src/main.py
     ├── core
     ├── main.py
     └── visualization
+```
 
 ## Backround
 
