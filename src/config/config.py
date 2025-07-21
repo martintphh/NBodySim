@@ -7,7 +7,7 @@ import os
 dt = 24 * 60 * 60           # [s]
 
 # Number of steps (e.g. 365 for one year)
-steps = 365 *5
+steps = 365 
 
 # Select bodies to simulate
 bodies = [sun, mercury, venus, earth, mars]
