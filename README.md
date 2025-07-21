@@ -14,7 +14,7 @@ It visualizes planetary orbits and analyzes total, potential, and kinetic energy
 ## Installation
 
 ```bash
-git clone https://github.com/username/NBodySim.git
+git clone https://github.com/martinphh/NBodySim.git
 cd NBodySim
 pip install -r requirements.txt
 ```
@@ -75,6 +75,6 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 ## Contact
 
 Martin Tinhof – [martin.tinhof01@gmail.com]  
-Project link: [https://github.com/martintinhof/NBodySim](https://github.com/martintinhof/NBodySim)
+Project link: [https://github.com/martinphh/NBodySim](https://github.com/martintinhof/NBodySim)
 
 
