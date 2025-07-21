@@ -75,6 +75,6 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 ## Contact
 
 Martin Tinhof – [martin.tinhof01@gmail.com]  
-Project link: [https://github.com/martinphh/NBodySim](https://github.com/martintinhof/NBodySim)
+Project link: [https://github.com/martinphh/NBodySim](https://github.com/martinphh/NBodySim)
 
 
