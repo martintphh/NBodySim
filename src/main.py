@@ -8,6 +8,8 @@ from core.planets import *
 from core.energy import combine_energies, energy_plot
 from visualization.animation_2d import animate_2d, plot_2d
 from config import config
+from core.perihel_rotation import find_perihels
+
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -19,6 +21,7 @@ def main():
     integrator = config.integrator
     save_plot = config.save_plot
     save_animation = config.save_animation
+    save_energy = config.save_energy
 
     positions, T, V, time = simulate(bodies, steps, dt, integrator=integrator) #rk4 simulation
 
@@ -35,7 +38,10 @@ def main():
     T, V, E = combine_energies(T, V)
 
     # Optional: Energieverlauf plotten 
-    # energy_plot(T, V, E, time)
+    energy_plot(T, V, E, time, save_energy)                       #new function
+    
+    """find_perihels(positions_2d, bodies, "Mercury", time)"""    #new function
+
 
     logging.info("Simulation completed.")
     logging.info(f"Plot saved to {save_plot}")

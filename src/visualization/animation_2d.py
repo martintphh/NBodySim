@@ -79,7 +79,7 @@ def animate_2d(bodies, positions, time, save_path):
 
     ani = FuncAnimation(fig=fig, func=update, frames=len(time), interval=10, blit=False)
     plt.tight_layout()
-    ani.save(save_path, writer='ffmpeg', fps=30)
+    ani.save(save_path, writer='pillow', fps=30)
 
     plt.show()
 

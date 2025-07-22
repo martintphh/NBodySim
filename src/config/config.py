@@ -4,11 +4,10 @@ import os
 # --- Simulation Parameters ---
 
 # Time step in seconds (1 day)
-dt = 24 * 60 * 60           # [s]
+dt = 24*  60 * 60           # [s]
 
 # Number of steps (e.g. 365 for one year)
-steps = 365 
-
+steps = 365
 # Select bodies to simulate
 bodies = [sun, mercury, venus, earth, mars]
 
@@ -43,4 +42,5 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 
 #File names for plots and animations
 save_plot = os.path.join(RESULTS_DIR, f"plot_{len(bodies)}bodies_{int(duration_years)}y_{method}.png")
-save_animation = os.path.join(RESULTS_DIR, f"animation_{len(bodies)}bodies_{int(duration_years)}y_{method}.mp4")
+save_animation = os.path.join(RESULTS_DIR, f"animation_{len(bodies)}bodies_{int(duration_years)}y_{method}.gif")
+save_energy = os.path.join(RESULTS_DIR, f"energy.png")
