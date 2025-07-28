@@ -38,9 +38,9 @@ def main():
     T, V, E = combine_energies(T, V)
 
     # Optional: Energieverlauf plotten 
-    energy_plot(T, V, E, time, save_energy)                       #new function
+    energy_plot(T, V, E, time, save_energy)                       
     
-    """find_perihels(positions_2d, bodies, "Mercury", time)"""    #new function
+    """find_perihels(positions_2d, bodies, "Mercury", time)"""   #experimental function to calculate perihel rotation
 
 
     logging.info("Simulation completed.")

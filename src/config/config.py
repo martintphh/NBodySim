@@ -4,10 +4,10 @@ import os
 # --- Simulation Parameters ---
 
 # Time step in seconds (1 day)
-dt = 24*  60 * 60           # [s]
+dt = 24 * 3600         # [s]
 
 # Number of steps (e.g. 365 for one year)
-steps = 365
+steps =int(365.25 * 24 * 3600 / dt)
 # Select bodies to simulate
 bodies = [sun, mercury, venus, earth, mars]
 
