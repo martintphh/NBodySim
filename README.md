@@ -60,8 +60,12 @@ The N-body problem ist a central problem in classical mechanics. It describes th
 
 
 ## Future Work
-- Add plots/animations of energy (total, potential, kinetic) over time to compare euler and rk4
-- Add function to analyse perihel rotation
+
+- Optimize the perihelion calculation function to reduce errors and improve accuracy, as the current implementation produces results that deviate significantly from expected physical behavior.
+- Implement smoothing or interpolation techniques to stabilize perihelion angle detection.
+- Validate the perihelion precession results against reference data or analytical models.
+
+
 
 ## License
 
