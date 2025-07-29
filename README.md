@@ -10,7 +10,7 @@ It visualizes planetary orbits and analyzes total, potential, and kinetic energy
 
 ![5-Körper Bahn](results/plot_5bodies_5y_rk4.png)
 
-### Animation of the trajectories (5 years, RK4)
+### Animation of the trajectories (1 year, RK4)
 
 ![Animation der Bahnen](results/animation_5bodies_1y_rk4.gif)
 
