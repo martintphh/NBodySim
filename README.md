@@ -4,6 +4,22 @@ A classical N-body simulation of our solar system using Newtonian gravity.
 The project implements both the Euler method and the fourth-order Runge-Kutta method for numerical integration.  
 It visualizes planetary orbits and analyzes total, potential, and kinetic energy over time.
 
+## Visualizations
+
+### Trajectories of the planets (5 years simulation miusing RK4)
+
+![5-Körper Bahn](results/plot_5bodies_5y_rk4.png)
+
+### Animation of the trajectories (5 years, RK4)
+
+![Animation der Bahnen](results/animation_5bodies_5y_rk4.gif)
+
+### Energy conservation
+
+![Energie über Zeit](results/energy.png)
+
+
+
 ## Features
 
 - Simulation of gravitational forces between selected solar system planets
